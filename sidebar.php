@@ -64,7 +64,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="../gallery.html" class="nav-link">
+            <a href="gallery.html" class="nav-link">
               <i class="nav-icon fas fa-capsules"></i>
               <p>
                 Jual Obat
