@@ -67,7 +67,7 @@
             <a href="../gallery.html" class="nav-link">
               <i class="nav-icon fas fa-capsules"></i>
               <p>
-                Penjualan Obat
+                Jual Obat
               </p>
             </a>
           </li>
