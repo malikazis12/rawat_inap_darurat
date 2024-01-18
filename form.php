@@ -24,8 +24,8 @@
                 <div class="card-body">
                 <form action="proses_form.php" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
-                        <label for="nim" class="form-label">Nim</label>
-                        <input type="text" name="nim" class="form-control" id="nim">
+                        <label for="nik" class="form-label">Nik</label>
+                        <input type="text" name="nik" class="form-control" id="nik">
                     </div>
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama</label>
@@ -64,22 +64,6 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="kelas" class="form-label">Kelas</label>
-                        <select name="kelas" class="form-select" id="kelas" aria-label="Default select example">
-                            <option selected>Kelas</option>
-                            <option value="IS61-A">IS61-A</option>
-                            <option value="IS61-B">IS61-B</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="tempatLahir" class="form-label">Tempat Lahir</label>
-                        <input type="text" name="tempatlahir" class="form-control" id="tempatLahir">
-                    </div>
-                    <div class="mb-3">
-                        <label for="tanggalLahir" class="form-label">Tanggal Lahir</label>
-                        <input type="date" name="tanggallahir" class="form-control" id="tanggalLahir">
-                    </div>
-                    <div class="mb-3">
                         <label for="alamat" class="form-label">Alamat</label>
                         <input type="text" name="alamat" class="form-control" id="alamat">
                     </div>
@@ -89,8 +73,8 @@
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="mb-3">
-                        <label for="alamat" class="form-label">Foto</label>
-                        <input type="file" name="foto" class="form-control" id="alamat">
+                        <label for="alamat" class="form-label">HP</label>
+                        <input type="text" name="hp" class="form-control" id="hp">
                     </div>
                     <button type="submit" class="dark">Submit</button>
                     <a href="index.php" class="btn btn-outline-secondary"> Batal </a>
