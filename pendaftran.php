@@ -40,7 +40,8 @@ include_once("cek_login.php");
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="form.php">Edit</a></li>
+              <li class="breadcrumb-item"> <button type="submit" class="dark"><a href="form.php">Edit</a></li></button>
+             
               <li class="breadcrumb-item active">Rawat Inap</li>
             </ol>
           </div>

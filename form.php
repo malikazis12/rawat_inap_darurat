@@ -68,16 +68,15 @@
                         <input type="text" name="alamat" class="form-control" id="alamat">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
                         <label for="alamat" class="form-label">HP</label>
                         <input type="text" name="hp" class="form-control" id="hp">
                     </div>
+                    <div class="mb-3">
+                        <label for="bpjs" class="form-label">BPJS</label>
+                        <input type="text" name="bpjs" class="form-control" id="bpjs">
+                    </div>
                     <button type="submit" class="dark">Submit</button>
-                    <a href="index.php" class="btn btn-outline-secondary"> Batal </a>
+                    <a href="pendaftaran.php" class="btn btn-outline-secondary"> Batal </a>
                 </form>
                 </div>
             </div>
