@@ -76,7 +76,7 @@ include_once("cek_login.php");
                   include_once("koneksi.php");
 
                   // 2.Memebuat query untuk menampilkan seluruh data
-                  $qry ="SELECT * FROM 5";
+                  $qry ="SELECT * FROM pendaftaran";
 
                   // 3.Menjalankan query
                   $tampil = mysqli_query($con,$qry);
@@ -86,23 +86,18 @@ include_once("cek_login.php");
                   foreach($tampil as $data){
                   ?>                 
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
+                    <td><?php echo $data['nik'] ?></td>
+                    <td><?php echo $data['nama'] ?></td>
+                    <td><?php echo $data['alamat'] ?></td>
+                    <td><?php echo $data['hp'] ?></td>
+                    <td><?php echo $data['bpjs'] ?></td>
                   </tr>
+                  <?php
+                  }
+                  ?>
                   </tbody>
                   <tfoot>
-                  <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
-                  </tr>
+
                   </tfoot>
                 </table>
               </div>
