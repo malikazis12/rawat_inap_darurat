@@ -37,7 +37,7 @@
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="pendaftran.php" class="nav-link">
               <i class="nav-icon fas fa-id-card"></i>
               <p>
                 Pendaftaran
