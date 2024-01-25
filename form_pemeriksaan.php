@@ -61,46 +61,23 @@ include_once("cek_login.php");
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>Diagnosa</th>
-                    <th>Rekam Medis</th>
-                  </tr>
-                  </thead>                 
-                  <tbody>                      
-                  <?php
-                  // 1.Harus membuat koneksi
-                  include_once("koneksi.php");
-
-                  // 2.Memebuat query untuk menampilkan seluruh data
-                  $qry ="SELECT * FROM pemeriksaan";
-
-                  // 3.Menjalankan query
-                  $tampil = mysqli_query($con,$qry);
-
-                  // 4.Menampilkan data menggunakan looping foreach
-                  $nomor = 1;
-                  foreach($tampil as $data){
-                  ?>                 
-                  <tr>
-                    <td><?php echo $data['diagnosa'] ?></td>
-                    <td><?php echo $data['rekam medis'] ?></td>
-                  </tr>
-                  <?php
-                  }
-                  ?>
-                  </tbody>
-                  <tfoot>
-
-                  </tfoot>
-                </table>
+            <form action="proses_form_pemeriksaan.php" method="POST" enctype="multipart/form-data">
+              <div class="form-group mb-5">
+                <label for="diagnosa" class="form-label">Diagnosa</label>
+                <input type="text" name="diagnosa" class="form-control" id="diagnosa">
               </div>
+              <div class="mb-3">
+                        <label for="alamat" class="form-label">Rekam Medis</label>
+                        <input type="file" name="rekammedis" class="form-control" id="alamat">
+                    </div>
+              <button type="submit" class="btn btn-secondary">Submit</button>
+              <a href="pemeriksaan.php" class="btn btn-outline-secondary">Batal</a>
+            </form>
+          </div>
         <!-- /.card-body -->
         <div class="card-footer">
           Jangan lupa bersyukur 
         </div>
-        <a href="form_pemeriksaan.php" class="btn btn-outline-danger"><i class="fa fa-user-plus"></i>Tambah Data </a>
         <!-- /.card-footer-->
       </div>
       <!-- /.card -->
