@@ -40,7 +40,7 @@ include_once("cek_login.php");
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"> <button type="submit" class="dark"><a href="form.php">Edit</a></li></button>
+            
              
               <li class="breadcrumb-item active">Rawat Inap</li>
             </ol>
@@ -70,8 +70,8 @@ include_once("cek_login.php");
                     <th>No HP</th>
                     <th>BPJS</th>
                   </tr>
-                  </thead>
-                  <tbody>  
+                  </thead>                 
+                  <tbody>                      
                   <?php
                   // 1.Harus membuat koneksi
                   include_once("koneksi.php");
@@ -106,6 +106,7 @@ include_once("cek_login.php");
         <div class="card-footer">
           Jangan lupa bersyukur 
         </div>
+        <a href="form.php" class="btn btn-outline-danger"><i class="fa fa-user-plus"></i>Tambah Data </a>
         <!-- /.card-footer-->
       </div>
       <!-- /.card -->
