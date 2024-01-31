@@ -3,13 +3,13 @@
 include_once("koneksi.php");
 
 // 2. Mengambil Seluruh Nilai Input Dan Di Masukkan Ke Variabel
-$nik  = $_POST['nik'];
-$nama  = $_POST['nama'];
-$jk  = $_POST['jk'];
-$diagnosa  = $_POST['diagnnosa'];
-$alamat  = $_POST['alamat'];
-$hp  = $_POST['hp'];
-$bpjs = $_POST['bpjs'];
+$nik        = $_POST['nik'];
+$nama       = $_POST['nama'];
+$jk         = $_POST['jk'];
+$diagnosa   = $_POST['diagnnosa'];
+$alamat     = $_POST['alamat'];
+$hp         = $_POST['hp'];
+$bpjs       = $_POST['bpjs'];
 
 $nama_file = $_FILES ['foto']['name'];
 $tmp_file = $_FILES ['foto']['tmp_name'];

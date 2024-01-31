@@ -23,7 +23,7 @@ include_once("cek_login.php");
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
-    <?php include_once('navbar.php') ?>
+   
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->

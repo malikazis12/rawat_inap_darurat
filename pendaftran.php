@@ -106,6 +106,11 @@ include_once("cek_login.php");
         <div class="card-footer">
           Jangan lupa bersyukur 
         </div>
+        <div class="modal-body">
+        Data Mahasiswa Dengan Nama <b><?php echo $data['nama'] ?></b> Igin Dihapus?
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+        <a href="proses_hapus.php?id=<?php echo $data['id_pdf'] ?>" type="button" class="btn btn-danger">Ya</a>
         <a href="form.php" class="btn btn-outline-danger"><i class="fa fa-user-plus"></i>Tambah Data </a>
         <!-- /.card-footer-->
       </div>
