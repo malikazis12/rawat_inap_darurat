@@ -87,7 +87,7 @@ include_once("cek_login.php");
                   <option selected> Pilih diagnosa</option>
                   <?php
                     include("koneksi.php");
-                    $query = "SELECT * FROM pemeriksaan";
+                    $query = "SELECT * FROM pendaftaran ";
                     $hasil = mysqli_query($con,$query);
                     foreach ($hasil as $diag) {
                   ?>
