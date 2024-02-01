@@ -6,18 +6,15 @@ include_once("koneksi.php");
 $nik        = $_POST['nik'];
 $nama       = $_POST['nama'];
 $jk         = $_POST['jk'];
-$diagnosa   = $_POST['diagnnosa'];
+$diagnosa   = $_POST['diagnosa'];
 $alamat     = $_POST['alamat'];
 $hp         = $_POST['hp'];
 $bpjs       = $_POST['bpjs'];
 
-$nama_file = $_FILES ['foto']['name'];
-$tmp_file = $_FILES ['foto']['tmp_name'];
 
-$upload = move_uploaded_file($tmp_file,"foto/$nama_file");
 
 // 3.Membuat Query INSET
-$qry = "INSERT INTO pendaftaran (nik,nama,jk,diagnosas,alamat,hp,bpjs) VALUES ('$nik','$nama','$jk','$diagnosa','$alamat','$hp','$bpjs','$nama_file')";
+$qry = "INSERT INTO pendaftaran (nik,nama,jk,diagnosas,alamat,hp,bpjs) VALUES ('$nik','$nama','$jk','$diagnosa','$alamat','$hp','$bpjs')";
 
 // 4.menjalankan query
 $simpan = mysqli_query($con,$qry);
@@ -25,5 +22,5 @@ $simpan = mysqli_query($con,$qry);
 // 5.alihkan ke halaman index.php
 ?>
 <script>
-    document.location="index.php";
+    document.location="pendaftaran.php";
 </script>

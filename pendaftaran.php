@@ -69,6 +69,7 @@ include_once("cek_login.php");
                     <th>Alamat</th>
                     <th>No HP</th>
                     <th>BPJS</th>
+                    <th>Diagnosa</th>
                   </tr>
                   </thead>                 
                   <tbody>                      
@@ -89,10 +90,12 @@ include_once("cek_login.php");
                   <tr>
                     <td><?php echo $data['nik'] ?></td>
                     <td><?php echo $data['nama'] ?></td>
-                    <td><?php echo $data['alamat'] ?></td>
+                    <td><?php echo $data['alamat'] ?></td>  
                     <td><?php echo $data['hp'] ?></td>
                     <td><?php echo $data['bpjs'] ?></td>
+                    <td><?php echo $data['diagnosas'] ?></td>
                   </tr>
+                  <div class="modal fade modal-lg" id="exampleModal<?php echo $data['id_pdf'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <?php
                   }
                   ?>
@@ -110,7 +113,7 @@ include_once("cek_login.php");
         Data Mahasiswa Dengan Nama <b><?php echo $data['nama'] ?></b> Igin Dihapus?
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-        <a href="proses_hapus.php?id=<?php echo $data['id_pdf'] ?>" type="button" class="btn btn-danger">Ya</a>
+        <a href="proses_hapus.php?id=<?php echo $data['id'] ?>" type="button" class="btn btn-danger">Ya</a>
         <a href="form.php" class="btn btn-outline-danger"><i class="fa fa-user-plus"></i>Tambah Data </a>
         <!-- /.card-footer-->
       </div>

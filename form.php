@@ -61,7 +61,7 @@ include_once("cek_login.php");
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-            <form action="proses_form.php" method="POST" enctype="multipart/form-data">
+            <form action="proses_form.php" method="POST">
               <div class="form-group mb-5">
                 <label for="nik" class="form-label">Nik</label>
                 <input type="text" name="nik" class="form-control" id="nik">
@@ -87,11 +87,11 @@ include_once("cek_login.php");
                   <option selected> Pilih diagnosa</option>
                   <?php
                     include("koneksi.php");
-                    $query = "SELECT * FROM pendaftaran ";
+                    $query = "SELECT * FROM pemeriksaan ";
                     $hasil = mysqli_query($con,$query);
                     foreach ($hasil as $diag) {
                   ?>
-                    <option value="<?php echo $diag['id'] ?>"> <?php echo $diag['kode'] ?> - <?php echo $diag['diagnosa'] ?></option>
+                    <option value="<?php echo $diag['id'] ?>"> <?php echo $diag['diagnosa'] ?> - <?php echo $diag['diagnosa'] ?></option>
                   <?php
                     }
                   ?>

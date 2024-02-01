@@ -37,7 +37,16 @@
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
-            <a href="pendaftran.php" class="nav-link">
+            <a href="index.php" class="nav-link">
+              <i class="fa-reguler fa-gauge"></i>
+              <p>
+                Dasboard
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="pendaftaran.php" class="nav-link">
               <i class="nav-icon fas fa-id-card"></i>
               <p>
                 Pendaftaran

@@ -6,7 +6,7 @@ include_once("koneksi.php");
 $id = $_GET['id'];
 
 // 3.membuat query delete
-$qry = "DELETE FROM pendaftaran` WHERE id='$id'";
+$qry = "DELETE FROM pendaftaran WHERE id='$id'";
 
 // 4.menjalankan query
 $simpan = mysqli_query($con,$qry);

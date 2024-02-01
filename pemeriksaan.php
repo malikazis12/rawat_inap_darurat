@@ -85,7 +85,8 @@ include_once("cek_login.php");
                   ?>                 
                   <tr>
                     <td><?php echo $data['diagnosa'] ?></td>
-                    <td><?php echo $data['rekam medis'] ?></td>
+                    <td><?php echo $data['rekammedis'] ?></td>
+                    <td><button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $data['rekammedis'] ?>" class="btn btn-warning btn-sm "><i class="fa fa-eye"></i></button></td>
                   </tr>
                   <?php
                   }
