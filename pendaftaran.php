@@ -109,6 +109,7 @@ include_once("cek_login.php");
         <div class="card-footer">
           Jangan lupa bersyukur 
         </div>
+        <a href="form_edit.php?id=<?php echo $data['id_pdf'] ?>" class="btn btn-primary"> <i class="fa fa-pencil"></i></a>
         <div class="modal-body">
         Data Mahasiswa Dengan Nama <b><?php echo $data['nama'] ?></b> Igin Dihapus?
         <div class="modal-footer">

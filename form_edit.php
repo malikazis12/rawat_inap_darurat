@@ -98,7 +98,7 @@ $pdf = mysqli_fetch_array($data);
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <button type="submit" class="dark">Submit</button>
-                    <a href="index.php" class="btn btn-outline-secondary"> Batal </a>
+                    <a href="pendaftaran.php" class="btn btn-outline-secondary"> Batal </a>
                 </form>
                 </div>
             </div>
