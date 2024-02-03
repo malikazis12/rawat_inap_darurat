@@ -1,10 +1,5 @@
 <?php
-include_once("koneksi.php");
-$id = $_GET['id'];
-$qry = "SELECT * FROM rawatinap WHERE id='$id'";
-$data = mysqli_query($con,$qry);
-
-$rwt = mysqli_fetch_array($data);
+include_once("cek_login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +23,7 @@ $rwt = mysqli_fetch_array($data);
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
-   
+    <?php include_once('navbar.php') ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -41,7 +36,7 @@ $rwt = mysqli_fetch_array($data);
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Rawat Inap</h1>
+            <h1>Jual Obat</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -58,46 +53,80 @@ $rwt = mysqli_fetch_array($data);
     <!-- Main content -->
     <section class="content">
         
-
+    <a href="form_jual_obat.php" class="btn btn-outline-danger"><i class="fa fa-user-plus"></i>Tambah Data </a>
       <!-- Default box -->
-      <div class="card col-md-6 m-auto" >
+      <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Masukkan Biodata Anda</h3>
+                <h3 class="card-title">DataTable with default features</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-            <form action="proses_edit_rawat_inap.php" method="POST">
-            <input type="hidden" name="id" value="<?php echo $rwt['id']?>">
-              <div class="form-group mb-5">
-                <label for="norawatinap" class="form-label">No Rawat Inap</label>
-                <input type="text" value="<?php echo $rwt['norawatinap']?>" name="norawatinap" class="form-control" id="norawatinap">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>No Faktur</th>
+                    <th>Tgl Penjualan Obat</th>
+                    <th>Id petugas</th>
+                    <th>Kd Obat</th>
+                    <th>Jumlah</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>                 
+                  <tbody>                      
+                  <?php
+                  // 1.Harus membuat koneksi
+                  include_once("koneksi.php");
+
+                  // 2.Memebuat query untuk menampilkan seluruh data
+                  $qry ="SELECT * FROM jualobat";
+
+                  // 3.Menjalankan query
+                  $tampil = mysqli_query($con,$qry);
+
+                  // 4.Menampilkan data menggunakan looping foreach
+                  $nomor = 1;
+                  foreach($tampil as $data){
+                  ?>                 
+                  <tr>
+                    <td><?php echo $data['nofaktur'] ?></td>
+                    <td><?php echo $data['tgl_penjualan_obat'] ?></td>
+                    <td><?php echo $data['id_petugas'] ?></td>  
+                    <td><?php echo $data['kd_obat'] ?></td>
+                    <td><?php echo $data['jumlah'] ?></td>
+                    <td>
+                      <a href="form_edit_jual_obat.php?id=<?php echo $data['id'] ?>" class="btn btn-primary"> <i class="fa fa-pencil"></i></a>
+                      <button type="button" data-bs-toggle="modal" data-bs-target="#hapus<?php echo $data['id'] ?>" class="btn btn-danger btn-sm "><i class="fa fa-trash"></i></button></td>
+                            <div class="modal fade modal-lg" id="hapus<?php echo $data['id'] ?>" tabindex="-1" aria-labelledby="hapus" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="hapus">Modal title</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                Data Mahasiswa Dengan Nama <b><?php echo $data['nofaktur'] ?></b> Igin Dihapus?
+                              <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                              <a href="proses_hapus_jual_obat.php?id=<?php echo $data['id'] ?>" type="button" class="btn btn-danger">Ya</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+            
+                  <?php
+                  }
+                  ?>
+      </tr>
+                  </tbody>
+                  <tfoot>
+
+                  </tfoot>
+                </table>
               </div>
-              <div class="form-group mb-3">
-                <label for="norekmed" class="form-label">No Rekmed</label>
-                <input type="text" value="<?php echo $rwt['norekmed']?>" name="norekmed" class="form-control" id="norekmed">
-              </div>
-              <div class="form-group mb-3">
-                <label for="tgl_masuk" class="form-label">Tanggal Masuk</label>
-                <input type="date" value="<?php echo $rwt['tgl_masuk']?>" name="tgl_masuk" class="form-control" id="tgl_masuk">
-              </div>
-              <div class="form-group mb-3">
-                <label for="tgl_keluar" class="form-label">Tanggal Keluar</label>
-                <input type="date" value="<?php echo $rwt['tgl_keluar'] ?>" name="tgl_keluar" class="form-control" id="tgl_keluar">
-              </div>
-              <div class="form-group mb-3">
-                <label for="progres_tindakan" class="form-label">Progres Tindakan</label>
-                <input type="text" value="<?php echo $rwt['progres_tindakan']?>" name="progres_tindakan" class="form-control" id="progres_tindakan">
-              </div>
-              <button type="submit" class="btn btn-secondary">Submit</button>
-              <a href="rawat_inap.php" class="btn btn-outline-secondary">Batal</a>
-            </form>
-          </div>
         <!-- /.card-body -->
-       
-        <!-- /.card-footer-->
       </div>
       <!-- /.card -->
-
     </section>
     <!-- /.content -->
   </div>
@@ -116,6 +145,7 @@ $rwt = mysqli_fetch_array($data);
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & Plugins -->
@@ -130,7 +160,8 @@ $rwt = mysqli_fetch_array($data);
 <script src="plugins/pdfmake/vfs_fonts.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->

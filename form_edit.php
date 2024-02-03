@@ -88,8 +88,8 @@ $pdf = mysqli_fetch_array($data);
                 </div>
               </div>
               <div class="form-group mb-3">
-                <label for="diagnosa" class="form-label">Diagnosa</label>
-                <select value="<?php echo $pdf['diagnosa']?>" name="diagnosa" class="form-control" aria-label="diagnosa">
+                <label for="diagnosas" class="form-label">Diagnosa</label>
+                <select value="<?php echo $pdf['diagnosas']?>" name="diagnosas" class="form-control" aria-label="diagnosas">
                   <option selected> Pilih diagnosa</option>
                   <?php
                     include("koneksi.php");
@@ -97,7 +97,7 @@ $pdf = mysqli_fetch_array($data);
                     $hasil = mysqli_query($con,$query);
                     foreach ($hasil as $diagnosa) {
                   ?>
-                    <option value="<?php echo $diagnosa['id'] ?>"> <?php echo $diagnosa['diagnosa'] ?> - <?php echo $diagnosa['diagnosa'] ?></option>
+                    <option value="<?php echo $diagnosa['id'] ?>"> <?php echo $diagnosa['diagnosa'] ?> - <?php echo $diagnosa['id'] ?></option>
                   <?php
                     }
                   ?>

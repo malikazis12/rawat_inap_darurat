@@ -1,10 +1,10 @@
 <?php
 include_once("koneksi.php");
 $id = $_GET['id'];
-$qry = "SELECT * FROM rawatinap WHERE id='$id'";
+$qry = "SELECT * FROM jualobat WHERE id='$id'";
 $data = mysqli_query($con,$qry);
 
-$rwt = mysqli_fetch_array($data);
+$jot = mysqli_fetch_array($data);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +41,7 @@ $rwt = mysqli_fetch_array($data);
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Rawat Inap</h1>
+            <h1>Jual Obat</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -66,33 +66,36 @@ $rwt = mysqli_fetch_array($data);
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-            <form action="proses_edit_rawat_inap.php" method="POST">
-            <input type="hidden" name="id" value="<?php echo $rwt['id']?>">
+            <form action="proses_edit_jual_obat.php" method="POST">
+            <input type="hidden" name="id" value="<?php echo $jot['id']?>">
               <div class="form-group mb-5">
-                <label for="norawatinap" class="form-label">No Rawat Inap</label>
-                <input type="text" value="<?php echo $rwt['norawatinap']?>" name="norawatinap" class="form-control" id="norawatinap">
+                <label for="nofaktur" class="form-label">nofaktur</label>
+                <input type="text" value="<?php echo $jot['nofaktur']?>" name="nofaktur" class="form-control" id="nofaktur">
               </div>
               <div class="form-group mb-3">
-                <label for="norekmed" class="form-label">No Rekmed</label>
-                <input type="text" value="<?php echo $rwt['norekmed']?>" name="norekmed" class="form-control" id="norekmed">
+                <label for="tgl_penjualan_obat" class="form-label">tgl_penjualan_obat</label>
+                <input type="date" value="<?php echo $jot['tgl_penjualan_obat']?>" name="tgl_penjualan_obat" class="form-control" id="tgl_penjualan_obat">
               </div>
               <div class="form-group mb-3">
-                <label for="tgl_masuk" class="form-label">Tanggal Masuk</label>
-                <input type="date" value="<?php echo $rwt['tgl_masuk']?>" name="tgl_masuk" class="form-control" id="tgl_masuk">
+                <label for="id_petugas" class="form-label">id_petugas</label>
+                <input type="text" value="<?php echo $jot['id_petugas']?>" name="id_petugas" class="form-control" id="id_petugas">
               </div>
               <div class="form-group mb-3">
-                <label for="tgl_keluar" class="form-label">Tanggal Keluar</label>
-                <input type="date" value="<?php echo $rwt['tgl_keluar'] ?>" name="tgl_keluar" class="form-control" id="tgl_keluar">
+                <label for="kd_obat" class="form-label">kd_obat</label>
+                <input type="text" value="<?php echo $jot['kd_obat']?>" name="kd_obat" class="form-control" id="kd_obat">
               </div>
               <div class="form-group mb-3">
-                <label for="progres_tindakan" class="form-label">Progres Tindakan</label>
-                <input type="text" value="<?php echo $rwt['progres_tindakan']?>" name="progres_tindakan" class="form-control" id="progres_tindakan">
+                <label for="jumlah" class="form-label">jumlah</label>
+                <input type="text" value="<?php echo $jot['jumlah']?>" name="jumlah" class="form-control" id="jumlah">
               </div>
               <button type="submit" class="btn btn-secondary">Submit</button>
-              <a href="rawat_inap.php" class="btn btn-outline-secondary">Batal</a>
+              <a href="jual_obat.php" class="btn btn-outline-secondary">Batal</a>
             </form>
           </div>
         <!-- /.card-body -->
+        <div class="card-footer">
+          Jangan lupa bersyukur 
+        </div>
        
         <!-- /.card-footer-->
       </div>

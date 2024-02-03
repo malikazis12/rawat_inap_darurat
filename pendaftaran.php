@@ -95,46 +95,7 @@ include_once("cek_login.php");
                     <td><?php echo $data['hp'] ?></td>
                     <td><?php echo $data['bpjs'] ?></td>
                     <td><?php echo $data['diagnosas'] ?></td>
-                  
-                  <div class="modal fade modal-lg" id="exampleModal<?php echo $data['id_pdf'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel"><?php echo $data['nama'] ?></h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><b>Nik</b></label>
-                    <br>
-                    <span class="fs-3"><?php echo $data['nik'] ?></span>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><b>Nama</b></label>
-                    <br>
-                    <span class="fs-3"><?php echo $data['nama'] ?></span>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><b>Alamat</b></label>
-                    <br>
-                    <span class="fs-3"><?php echo $data['alamat'] ?></span>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><b>HP</b></label>
-                    <br>
-                    <span class="fs-3"><?php echo $data['hp'] ?></span>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><b>BPJS</b></label>
-                    <br>
-                    <span class="fs-3"><?php echo $data['bpjs'] ?></span>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><b>Diagnosa</b></label>
-                    <br>
-                    <span class="fs-3"><?php echo $data['diagnosa'] ?></span>
-                  </div>
-                  <?php
-                  }
-                  ?>
-                  <td>
+                    <td>
                       <a href="form_edit.php?id=<?php echo $data['id'] ?>" class="btn btn-primary"> <i class="fa fa-pencil"></i></a>
                       <button type="button" data-bs-toggle="modal" data-bs-target="#hapus<?php echo $data['id'] ?>" class="btn btn-danger btn-sm "><i class="fa fa-trash"></i></button></td>
                             <div class="modal fade modal-lg" id="hapus<?php echo $data['id'] ?>" tabindex="-1" aria-labelledby="hapus" aria-hidden="true">
@@ -154,6 +115,9 @@ include_once("cek_login.php");
                         </div>
                       </div>
                     </td>
+                  <?php
+                  }
+                  ?>
       </tr>
                   </tbody>
                   <tfoot>

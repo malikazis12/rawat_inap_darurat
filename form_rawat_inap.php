@@ -63,24 +63,24 @@ include_once("cek_login.php");
               <div class="card-body">
             <form action="proses_form_rawat_inap.php" method="POST">
               <div class="form-group mb-5">
-                <label for="nik" class="form-label">No Rawat Inap</label>
-                <input type="text" name="norawatinap" class="form-control" id="nik">
+                <label for="norawatinap" class="form-label">No Rawat Inap</label>
+                <input type="text" name="norawatinap" class="form-control" id="">
               </div>
               <div class="form-group mb-3">
-                <label for="nama" class="form-label">No Rekmed</label>
-                <input type="text" name="norekmed" class="form-control" id="nama">
+                <label for="norekmed" class="form-label">No Rekmed</label>
+                <input type="text" name="norekmed" class="form-control" id="norekmed">
               </div>
               <div class="form-group mb-3">
-                <label for="alamat" class="form-label">Tanggal Masuk</label>
-                <input type="text" name="tgl_masuk" class="form-control" id="alamat">
+                <label for="tgl_masuk" class="form-label">Tanggal Masuk</label>
+                <input type="date" name="tgl_masuk" class="form-control" id="tgl_masuk">
               </div>
               <div class="form-group mb-3">
-                <label for="hp" class="form-label">Tanggal Keluar</label>
-                <input type="text" name="tgl_keluar" class="form-control" id="hp">
+                <label for="tgl_keluar" class="form-label">Tanggal Keluar</label>
+                <input type="date" name="tgl_keluar" class="form-control" id="tgl_keluar">
               </div>
               <div class="form-group mb-3">
-                <label for="bpjs" class="form-label">Progres Tindakan</label>
-                <input type="text" name="progres_tindakan" class="form-control" id="bpjs">
+                <label for="progres_tindakan" class="form-label">Progres Tindakan</label>
+                <input type="text" name="progres_tindakan" class="form-control" id="progres_tindakan">
               </div>
               <button type="submit" class="btn btn-secondary">Submit</button>
               <a href="rawat_inap.php" class="btn btn-outline-secondary">Batal</a>

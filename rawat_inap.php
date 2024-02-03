@@ -64,7 +64,6 @@ include_once("cek_login.php");
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>NIK</th>
                     <th>No Rawat Inap</th>
                     <th>No Rekmed</th>
                     <th>Tgl Masuk</th>
@@ -94,42 +93,8 @@ include_once("cek_login.php");
                     <td><?php echo $data['tgl_masuk'] ?></td>  
                     <td><?php echo $data['tgl_keluar'] ?></td>
                     <td><?php echo $data['progres_tindakan'] ?></td>
-                  
-                  <div class="modal fade modal-lg" id="exampleModal<?php echo $data['id_pdf'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel"><?php echo $data['nama'] ?></h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><b>No Rawat Inap</b></label>
-                    <br>
-                    <span class="fs-3"><?php echo $data['nik'] ?></span>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><b>No Rekmed</b></label>
-                    <br>
-                    <span class="fs-3"><?php echo $data['nama'] ?></span>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><b>Tgl Masuk</b></label>
-                    <br>
-                    <span class="fs-3"><?php echo $data['alamat'] ?></span>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><b>Tanggal Keluar</b></label>
-                    <br>
-                    <span class="fs-3"><?php echo $data['hp'] ?></span>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><b>Progres Tindakan</b></label>
-                    <br>
-                    <span class="fs-3"><?php echo $data['bpjs'] ?></span>
-                  </div>
-                  <?php
-                  }
-                  ?>
-                  <td>
-                      <a href="form_edit.php?id=<?php echo $data['id'] ?>" class="btn btn-primary"> <i class="fa fa-pencil"></i></a>
+                    <td>
+                      <a href="form_edit_rawat_inap.php?id=<?php echo $data['id'] ?>" class="btn btn-primary"> <i class="fa fa-pencil"></i></a>
                       <button type="button" data-bs-toggle="modal" data-bs-target="#hapus<?php echo $data['id'] ?>" class="btn btn-danger btn-sm "><i class="fa fa-trash"></i></button></td>
                             <div class="modal fade modal-lg" id="hapus<?php echo $data['id'] ?>" tabindex="-1" aria-labelledby="hapus" aria-hidden="true">
                             <div class="modal-dialog">
@@ -139,15 +104,18 @@ include_once("cek_login.php");
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                                Data Mahasiswa Dengan Nama <b><?php echo $data['nama'] ?></b> Igin Dihapus?
+                                Data Mahasiswa Dengan Nama <b><?php echo $data['norawatinap'] ?></b> Igin Dihapus?
                               <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                              <a href="proses_hapus.php?id=<?php echo $data['id'] ?>" type="button" class="btn btn-danger">Ya</a>
+                              <a href="proses_hapus_rawat_inap.php?id=<?php echo $data['id'] ?>" type="button" class="btn btn-danger">Ya</a>
                             </div>
                           </div>
                         </div>
                       </div>
                     </td>
+                  <?php
+                  }
+                  ?>
       </tr>
                   </tbody>
                   <tfoot>
