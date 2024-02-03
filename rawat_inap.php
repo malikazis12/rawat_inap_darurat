@@ -79,7 +79,7 @@ include_once("cek_login.php");
                   include_once("koneksi.php");
 
                   // 2.Memebuat query untuk menampilkan seluruh data
-                  $qry ="SELECT * FROM pendaftaran";
+                  $qry ="SELECT * FROM rawatinap";
 
                   // 3.Menjalankan query
                   $tampil = mysqli_query($con,$qry);

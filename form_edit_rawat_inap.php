@@ -1,5 +1,10 @@
 <?php
-include_once("cek_login.php");
+include_once("koneksi.php");
+$id = $_GET['id'];
+$qry = "SELECT * FROM pendaftaran WHERE id='$id'";
+$data = mysqli_query($con,$qry);
+
+$pdf = mysqli_fetch_array($data);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +41,7 @@ include_once("cek_login.php");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Rawat Inap</h1>
+            <h1>Pendaftaran</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -61,32 +66,63 @@ include_once("cek_login.php");
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-            <form action="proses_form_rawat_inap.php" method="POST">
+            <form action="proses_edit.php" method="POST">
+            <input type="hidden" name="id" value="<?php echo $pdf['id']?>">
               <div class="form-group mb-5">
-                <label for="nik" class="form-label">No Rawat Inap</label>
-                <input type="text" name="norawatinap" class="form-control" id="nik">
+                <label for="nik" class="form-label">Nik</label>
+                <input type="text" value="<?php echo $pdf['nik']?>" name="nik" class="form-control" id="nik">
               </div>
               <div class="form-group mb-3">
-                <label for="nama" class="form-label">No Rekmed</label>
-                <input type="text" name="norekmed" class="form-control" id="nama">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" value="<?php echo $pdf['nama']?>" name="nama" class="form-control" id="nama">
               </div>
               <div class="form-group mb-3">
-                <label for="alamat" class="form-label">Tanggal Masuk</label>
-                <input type="text" name="tgl_masuk" class="form-control" id="alamat">
+                <label class="form-label">Jenis Kelamin</label>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" value="<?php echo $pdf['jk']?>" name="jk" id="exampleRadios1" value="Laki-Laki" checked>
+                  <label class="form-check-label" for="exampleRadios1">Laki-Laki</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" value="<?php echo $pdf['jk']?>" name="jk" id="exampleRadios2" value="Perempuan">
+                  <label class="form-check-label" for="exampleRadios2">Perempuan</label>
+                </div>
               </div>
               <div class="form-group mb-3">
-                <label for="hp" class="form-label">Tanggal Keluar</label>
-                <input type="text" name="tgl_keluar" class="form-control" id="hp">
+                <label for="diagnosa" class="form-label">Diagnosa</label>
+                <select value="<?php echo $pdf['diagnosa']?>" name="diagnosa" class="form-control" aria-label="diagnosa">
+                  <option selected> Pilih diagnosa</option>
+                  <?php
+                    include("koneksi.php");
+                    $query = "SELECT * FROM pemeriksaan ";
+                    $hasil = mysqli_query($con,$query);
+                    foreach ($hasil as $diagnosa) {
+                  ?>
+                    <option value="<?php echo $diagnosa['id'] ?>"> <?php echo $diagnosa['diagnosa'] ?> - <?php echo $diagnosa['diagnosa'] ?></option>
+                  <?php
+                    }
+                  ?>
+                </select>
               </div>
               <div class="form-group mb-3">
-                <label for="bpjs" class="form-label">Progres Tindakan</label>
-                <input type="text" name="progres_tindakan" class="form-control" id="bpjs">
+                <label for="alamat" class="form-label">Alamat</label>
+                <input type="text" value="<?php echo $pdf['alamat']?>" name="alamat" class="form-control" id="alamat">
+              </div>
+              <div class="form-group mb-3">
+                <label for="hp" class="form-label">HP</label>
+                <input type="text" value="<?php echo $pdf['hp']?>" name="hp" class="form-control" id="hp">
+              </div>
+              <div class="form-group mb-3">
+                <label for="bpjs" class="form-label">BPJS</label>
+                <input type="text" value="<?php echo $pdf['bpjs']?>" name="bpjs" class="form-control" id="bpjs">
               </div>
               <button type="submit" class="btn btn-secondary">Submit</button>
-              <a href="rawat_inap.php" class="btn btn-outline-secondary">Batal</a>
+              <a href="pendaftaran.php" class="btn btn-outline-secondary">Batal</a>
             </form>
           </div>
         <!-- /.card-body -->
+        <div class="card-footer">
+          Jangan lupa bersyukur 
+        </div>
        
         <!-- /.card-footer-->
       </div>
