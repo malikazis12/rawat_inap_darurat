@@ -36,7 +36,7 @@ include_once("cek_login.php");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Pemeriksaan</h1>
+            <h1>Rawat Inap</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -53,8 +53,7 @@ include_once("cek_login.php");
     <!-- Main content -->
     <section class="content">
         
-    <a href="form_pemeriksaan.php" class="btn btn-outline-danger"><i class="fa fa-user-plus"></i>Tambah Data </a>
-
+    <a href="form_rawat_inap.php" class="btn btn-outline-danger"><i class="fa fa-user-plus"></i>Tambah Data </a>
       <!-- Default box -->
       <div class="card">
               <div class="card-header">
@@ -65,8 +64,12 @@ include_once("cek_login.php");
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Diagnosa</th>
-                    <th>Rekam Medis</th>
+                    <th>NIK</th>
+                    <th>No Rawat Inap</th>
+                    <th>No Rekmed</th>
+                    <th>Tgl Masuk</th>
+                    <th>Tgl Keluar</th>
+                    <th>Progres Tindakan</th>
                     <th>Action</th>
                   </tr>
                   </thead>                 
@@ -76,7 +79,7 @@ include_once("cek_login.php");
                   include_once("koneksi.php");
 
                   // 2.Memebuat query untuk menampilkan seluruh data
-                  $qry ="SELECT * FROM pemeriksaan";
+                  $qry ="SELECT * FROM pendaftaran";
 
                   // 3.Menjalankan query
                   $tampil = mysqli_query($con,$qry);
@@ -86,26 +89,47 @@ include_once("cek_login.php");
                   foreach($tampil as $data){
                   ?>                 
                   <tr>
-                    <td><?php echo $data['diagnosa'] ?></td>
-                    <td><button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $data['id'] ?>" class="btn btn-warning btn-sm "><i class="fa fa-eye"></i></button></td>
-                    
-                                        <!-- Modal -->
-                    <div class="modal fade modal-lg" id="exampleModal<?php echo $data['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="exampleModalLabel"><?php echo $data['diagnosa'] ?></h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label"><b>Foto</b></label>
-                          <br>
-                          <img src="foto/<?php echo $data['foto'] ?>" height="400" weight="20">
-                        </div>
-                            
-                    <td>
-                      <a href="form_edit_pemeriksaan.php?id=<?php echo $data['id'] ?>" class="btn btn-primary"> <i class="fa fa-pencil"></i></a>
+                  <td><?php echo $data['norawatinap'] ?></td>
+                    <td><?php echo $data['norekmed'] ?></td>
+                    <td><?php echo $data['tgl_masuk'] ?></td>  
+                    <td><?php echo $data['tgl_keluar'] ?></td>
+                    <td><?php echo $data['progres_tindakan'] ?></td>
+                  
+                  <div class="modal fade modal-lg" id="exampleModal<?php echo $data['id_pdf'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><?php echo $data['nama'] ?></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>No Rawat Inap</b></label>
+                    <br>
+                    <span class="fs-3"><?php echo $data['nik'] ?></span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>No Rekmed</b></label>
+                    <br>
+                    <span class="fs-3"><?php echo $data['nama'] ?></span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>Tgl Masuk</b></label>
+                    <br>
+                    <span class="fs-3"><?php echo $data['alamat'] ?></span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>Tanggal Keluar</b></label>
+                    <br>
+                    <span class="fs-3"><?php echo $data['hp'] ?></span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>Progres Tindakan</b></label>
+                    <br>
+                    <span class="fs-3"><?php echo $data['bpjs'] ?></span>
+                  </div>
+                  <?php
+                  }
+                  ?>
+                  <td>
+                      <a href="form_edit.php?id=<?php echo $data['id'] ?>" class="btn btn-primary"> <i class="fa fa-pencil"></i></a>
                       <button type="button" data-bs-toggle="modal" data-bs-target="#hapus<?php echo $data['id'] ?>" class="btn btn-danger btn-sm "><i class="fa fa-trash"></i></button></td>
                             <div class="modal fade modal-lg" id="hapus<?php echo $data['id'] ?>" tabindex="-1" aria-labelledby="hapus" aria-hidden="true">
                             <div class="modal-dialog">
@@ -115,19 +139,16 @@ include_once("cek_login.php");
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                                Data Mahasiswa Dengan Nama <b><?php echo $data['diagnosa'] ?></b> Igin Dihapus?
+                                Data Mahasiswa Dengan Nama <b><?php echo $data['nama'] ?></b> Igin Dihapus?
                               <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                              <a href="proses_hapus_pemeriksaan.php?id=<?php echo $data['id'] ?>" type="button" class="btn btn-danger">Ya</a>
+                              <a href="proses_hapus.php?id=<?php echo $data['id'] ?>" type="button" class="btn btn-danger">Ya</a>
                             </div>
                           </div>
                         </div>
                       </div>
                     </td>
-                  </tr>
-                  <?php
-                  }
-                  ?>
+      </tr>
                   </tbody>
                   <tfoot>
 
@@ -135,11 +156,8 @@ include_once("cek_login.php");
                 </table>
               </div>
         <!-- /.card-body -->
-       
-        <!-- /.card-footer-->
       </div>
       <!-- /.card -->
-
     </section>
     <!-- /.content -->
   </div>
@@ -162,7 +180,7 @@ include_once("cek_login.php");
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & Plugins -->
-<!-- <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
@@ -173,7 +191,7 @@ include_once("cek_login.php");
 <script src="plugins/pdfmake/vfs_fonts.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script> -->
+<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>

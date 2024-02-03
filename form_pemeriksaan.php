@@ -67,9 +67,9 @@ include_once("cek_login.php");
                 <input type="text" name="diagnosa" class="form-control" id="diagnosa">
               </div>
               <div class="mb-3">
-                        <label for="alamat" class="form-label">Rekam Medis</label>
-                        <input type="file" name="rekammedis" class="form-control" id="alamat">
-                    </div>
+                        <label for="alamat" class="form-label">Foto</label>
+                        <input type="file" name="foto" class="form-control" id="alamat">
+              </div>      
               <button type="submit" class="btn btn-secondary">Submit</button>
               <a href="pemeriksaan.php" class="btn btn-outline-secondary">Batal</a>
             </form>

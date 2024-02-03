@@ -89,9 +89,9 @@ include_once("cek_login.php");
                     include("koneksi.php");
                     $query = "SELECT * FROM pemeriksaan ";
                     $hasil = mysqli_query($con,$query);
-                    foreach ($hasil as $diag) {
+                    foreach ($hasil as $diagnosa) {
                   ?>
-                    <option value="<?php echo $diag['id'] ?>"> <?php echo $diag['diagnosa'] ?> - <?php echo $diag['diagnosa'] ?></option>
+                    <option value="<?php echo $diagnosa['id'] ?>"> <?php echo $diagnosa['diagnosa'] ?> - <?php echo $diagnosa['diagnosa'] ?></option>
                   <?php
                     }
                   ?>

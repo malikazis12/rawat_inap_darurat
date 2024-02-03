@@ -53,7 +53,7 @@ include_once("cek_login.php");
     <!-- Main content -->
     <section class="content">
         
-
+    <a href="form.php" class="btn btn-outline-danger"><i class="fa fa-user-plus"></i>Tambah Data </a>
       <!-- Default box -->
       <div class="card">
               <div class="card-header">
@@ -70,6 +70,7 @@ include_once("cek_login.php");
                     <th>No HP</th>
                     <th>BPJS</th>
                     <th>Diagnosa</th>
+                    <th>Action</th>
                   </tr>
                   </thead>                 
                   <tbody>                      
@@ -94,11 +95,66 @@ include_once("cek_login.php");
                     <td><?php echo $data['hp'] ?></td>
                     <td><?php echo $data['bpjs'] ?></td>
                     <td><?php echo $data['diagnosas'] ?></td>
-                  </tr>
+                  
                   <div class="modal fade modal-lg" id="exampleModal<?php echo $data['id_pdf'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><?php echo $data['nama'] ?></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>Nik</b></label>
+                    <br>
+                    <span class="fs-3"><?php echo $data['nik'] ?></span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>Nama</b></label>
+                    <br>
+                    <span class="fs-3"><?php echo $data['nama'] ?></span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>Alamat</b></label>
+                    <br>
+                    <span class="fs-3"><?php echo $data['alamat'] ?></span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>HP</b></label>
+                    <br>
+                    <span class="fs-3"><?php echo $data['hp'] ?></span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>BPJS</b></label>
+                    <br>
+                    <span class="fs-3"><?php echo $data['bpjs'] ?></span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>Diagnosa</b></label>
+                    <br>
+                    <span class="fs-3"><?php echo $data['diagnosa'] ?></span>
+                  </div>
                   <?php
                   }
                   ?>
+                  <td>
+                      <a href="form_edit.php?id=<?php echo $data['id'] ?>" class="btn btn-primary"> <i class="fa fa-pencil"></i></a>
+                      <button type="button" data-bs-toggle="modal" data-bs-target="#hapus<?php echo $data['id'] ?>" class="btn btn-danger btn-sm "><i class="fa fa-trash"></i></button></td>
+                            <div class="modal fade modal-lg" id="hapus<?php echo $data['id'] ?>" tabindex="-1" aria-labelledby="hapus" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="hapus">Modal title</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                Data Mahasiswa Dengan Nama <b><?php echo $data['nama'] ?></b> Igin Dihapus?
+                              <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                              <a href="proses_hapus.php?id=<?php echo $data['id'] ?>" type="button" class="btn btn-danger">Ya</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+      </tr>
                   </tbody>
                   <tfoot>
 
@@ -106,20 +162,8 @@ include_once("cek_login.php");
                 </table>
               </div>
         <!-- /.card-body -->
-        <div class="card-footer">
-          Jangan lupa bersyukur 
-        </div>
-        <a href="form_edit.php?id=<?php echo $data['id_pdf'] ?>" class="btn btn-primary"> <i class="fa fa-pencil"></i></a>
-        <div class="modal-body">
-        Data Mahasiswa Dengan Nama <b><?php echo $data['nama'] ?></b> Igin Dihapus?
-        <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-        <a href="proses_hapus.php?id=<?php echo $data['id'] ?>" type="button" class="btn btn-danger">Ya</a>
-        <a href="form.php" class="btn btn-outline-danger"><i class="fa fa-user-plus"></i>Tambah Data </a>
-        <!-- /.card-footer-->
       </div>
       <!-- /.card -->
-
     </section>
     <!-- /.content -->
   </div>
@@ -138,6 +182,7 @@ include_once("cek_login.php");
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & Plugins -->
@@ -152,7 +197,8 @@ include_once("cek_login.php");
 <script src="plugins/pdfmake/vfs_fonts.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->

@@ -3,15 +3,12 @@
 include_once("koneksi.php");
 
 // 2. Mengambil Seluruh Nilai Input Dan Di Masukkan Ke Variabel
+$id  = $_POST['id'];
 $diagnosa  = $_POST['diagnosa'];
 
-$nama_file = $_FILES ['foto']['name'];
-$tmp_file  = $_FILES ['foto']['tmp_name'];
-
-$upload = move_uploaded_file($tmp_file,"foto/$nama_file");
 
 // 3.Membuat Query INSET
-$qry    = "INSERT INTO pemeriksaan (diagnosa,foto) VALUES ('$diagnosa','$nama_file')";
+$qry = "UPDATE pemeriksaan SET diagnosa='$diagnosa' WHERE id='$id'";
 
 // 4.menjalankan query
 $simpan = mysqli_query($con,$qry);

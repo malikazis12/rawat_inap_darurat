@@ -36,13 +36,16 @@ include_once("cek_login.php");
               //koneksi
               include_once("koneksi.php");
               //sql query
-
+              $sql_pem = "SELECT * FROM pemeriksaan";
               //jalankan query
+              $result_pem = mysqli_query($con,$sql_pem);
+              // hitung record data
+              $pem = mysqli_num_rows($result_pem);
             ?>
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3><?php echo $pem ?></h3>
 
                 <p>New Orders</p>
               </div>
